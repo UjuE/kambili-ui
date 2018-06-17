@@ -7,7 +7,7 @@ import Adapter from 'enzyme-adapter-react-16';
 Enzyme.configure({ adapter: new Adapter() });
 
 describe("MealTypeComponent", () => {
-    it("should render correctly", () => {
+    it("should accept parameters", () => {
         const component = shallow(<MealTypeComponent value="Breakfast" />);
         expect(component.getElements()).toMatchSnapshot();
     });
