@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MealComponent should accept parameters 1`] = `
+Array [
+  <div
+    className="meal"
+  >
+    <div
+      className="type"
+    >
+      Breakfast
+    </div>
+    <div
+      className="meal-name"
+    >
+      Salmon and Scrabbled eggs
+    </div>
+  </div>,
+]
+`;
