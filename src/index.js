@@ -1,20 +1,66 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import axios from 'axios'
 
-class Square extends React.Component {
+class Something extends React.Component{
+    constructor(props) {
+        super(props)
+
+        this.state = {
+            sunday:[],
+            monday:[],
+            tuesday:[],
+            wednesday:[],
+            thursday:[],
+            friday:[],
+            saturday:[]
+        }
+    }
+    componentDidMount(){
+        axios.get("http://localhost:8077")
+            .then(response => {
+                console.log("Response", response);
+                let day_menus = response.data.map((day_menu) => {
+                    return ({
+                        day: day_menu.day,
+                        menu: day_menu.menu_plans
+                    })
+                });
+                console.log(day_menus.find((x) => x.day === "Sunday").menu);
+                this.setState({
+                    sunday: day_menus.find((x) => x.day === "Sunday").menu,
+                    monday: day_menus.find((x) => x.day === "Monday").menu,
+                    tuesday: day_menus.find((x) => x.day === "Tuesday").menu,
+                    wednesday: day_menus.find((x) => x.day === "Wednesday").menu,
+                    thursday: day_menus.find((x) => x.day === "Thursday").menu,
+                    friday: day_menus.find((x) => x.day === "Friday").menu,
+                    saturday: day_menus.find((x) => x.day === "Saturday").menu
+                })
+            })
+            .catch((error) => {
+                console.log("error",error)
+            })
+    }
     render() {
         return (
-            <button className="square">
-                {this.props.value}
-            </button>
-        );
+            <div>
+                { this.state.sunday.map((it) => {
+                    return (
+                      <div>
+                          {it.menu_type} {it.meal_name}
+                      </div>
+                    );
+                }) }
+            </div>
+        )
     }
+
 }
 
 class Board extends React.Component {
-    renderSquare(i) {
-        return <Square value={i} />;
+    renderSquare() {
+        return <Something />;
     }
 
     render() {
@@ -23,71 +69,7 @@ class Board extends React.Component {
         return (
             <div>
                 <div className="status">{status}</div>
-                <div className="board-row">
                     {this.renderSquare()}
-                    {this.renderSquare("Breakfast")}
-                    {this.renderSquare("Lunch")}
-                    {this.renderSquare("Dinner")}
-
-                </div>
-                <div className="board-row">
-                    {this.renderSquare("Sunday")}
-                    {this.renderSquare(4)}
-                    {this.renderSquare(5)}
-                    {this.renderSquare(5)}
-                </div>
-                <div className="board-row">
-                    {this.renderSquare("Monday")}
-                    {this.renderSquare(7)}
-                    {this.renderSquare(8)}
-                    {this.renderSquare(8)}
-                </div>
-                <div className="board-row">
-                    {this.renderSquare("Tuesday")}
-                    {this.renderSquare(7)}
-                    {this.renderSquare(8)}
-                    {this.renderSquare(8)}
-                </div>
-                <div className="board-row">
-                    {this.renderSquare("Tuesday")}
-                    {this.renderSquare(7)}
-                    {this.renderSquare(8)}
-                    {this.renderSquare(8)}
-                </div>
-                <div className="board-row">
-                    {this.renderSquare("Wednesday")}
-                    {this.renderSquare(7)}
-                    {this.renderSquare(8)}
-                    {this.renderSquare(8)}
-                </div>
-                <div className="board-row">
-                    {this.renderSquare("Friday")}
-                    {this.renderSquare(7)}
-                    {this.renderSquare(8)}
-                    {this.renderSquare(8)}
-                </div>
-                <div className="board-row">
-                    {this.renderSquare("Saturday")}
-                    {this.renderSquare(7)}
-                    {this.renderSquare(8)}
-                    {this.renderSquare(8)}
-                </div>
-            </div>
-        );
-    }
-}
-
-class WeekMenu extends React.Component {
-    render() {
-        return (
-            <div className="game">
-                <div className="game-board">
-                    <Board />
-                </div>
-                <div className="game-info">
-                    <div>{/* status */}</div>
-                    <ol>{/* TODO */}</ol>
-                </div>
             </div>
         );
     }
@@ -96,6 +78,6 @@ class WeekMenu extends React.Component {
 // ========================================
 
 ReactDOM.render(
-    <WeekMenu />,
+    <Board />,
     document.getElementById('root')
 );
