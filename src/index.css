@@ -3,9 +3,9 @@ body {
     margin: 20px;
 }
 .week-menu{
-    margin: 0 auto;
+    margin: 0 0 0 3% ;
     display: block;
-    width: 95%;
+    width: 75%;
 }
 .meal{
     float: left;
