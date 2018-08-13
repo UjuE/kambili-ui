@@ -2,21 +2,19 @@
 
 exports[`DayMenuComponent should accept parameters 1`] = `
 Array [
-  <div>
+  <div
+    className="day-block"
+  >
     <DayComponent
       value="Sunday"
     />
     <MealComponent
-      name="Bread and Butter"
-      type="Breakfast"
+      name="Food"
+      type="breakfast"
     />
     <MealComponent
-      name="Garri with assorted meat banga soup"
-      type="Lunch"
-    />
-    <MealComponent
-      name="Garri with assorted meat banga soup"
-      type="Dinner"
+      name="Food"
+      type="lunch"
     />
   </div>,
 ]

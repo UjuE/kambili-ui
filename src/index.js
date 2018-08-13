@@ -5,7 +5,7 @@ import WeekMenuComponent from './main/WeekMenuComponent'
 
 class Board extends React.Component {
     render(){
-        return <WeekMenuComponent/>;
+        return <WeekMenuComponent baseUrl="http://localhost:5000/menus"/>;
     }
 }
 

@@ -19,7 +19,7 @@ export default class WeekMenuComponent extends React.Component {
     }
 
     componentDidMount() {
-        axios.get("http://localhost:5000/menus")
+        axios.get(this.props.baseUrl)
             .then(response => {
                 console.log("Response", response);
                 let day_menus = response.data.week_menu.map((day_menu) => {

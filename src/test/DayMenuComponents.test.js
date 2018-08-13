@@ -8,10 +8,15 @@ Enzyme.configure({ adapter: new Adapter() });
 
 describe("DayMenuComponent", () => {
     it("should accept parameters", () => {
+        const array = [{
+            meal_type: "breakfast",
+            meal_name: "Food"
+        }, {
+            meal_type: "lunch",
+            meal_name: "Food"
+        }];
         const component = shallow(<DayMenuComponent day="Sunday"
-                                                    breakfast="Bread and Butter"
-                                                    dinner="Garri with assorted meat banga soup"
-                                                    lunch="Garri with assorted meat banga soup" />);
+                                                   meals={array} />);
         expect(component.getElements()).toMatchSnapshot();
     });
 });
