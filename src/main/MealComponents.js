@@ -2,8 +2,9 @@ import React from 'react';
 
 export default class MealComponent extends React.Component {
     render() {
+        var className = "meal "+ this.props.type.toLocaleLowerCase();
         return (
-            <div className="meal" id={this.props.type.toLocaleLowerCase()}>
+            <div className={className} >
                 <div className="type">
                     {this.props.type}
                 </div>
