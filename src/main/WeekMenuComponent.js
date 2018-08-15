@@ -60,8 +60,8 @@ export default class WeekMenuComponent extends React.Component {
     render() {
         return (
             <div className="week-menu">
-                <div className="tile">Week {this.state.week_number} Meal Plan</div>
-                <div>
+                <div className="week-menu-title">Week {this.state.week_number} Meal Plan</div>
+                <div className="days">
                     <DayMenuComponent day="Sunday" meals={this.state.sunday}/>
                     <DayMenuComponent day="Monday" meals={this.state.monday}/>
                     <DayMenuComponent day="Tuesday" meals={this.state.tuesday}/>

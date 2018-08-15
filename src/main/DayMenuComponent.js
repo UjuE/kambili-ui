@@ -1,6 +1,7 @@
 import React from 'react';
 import DayComponent from "./DayComponent"
 import MealComponent from "./MealComponents";
+import moment from 'moment'
 
 export default class DayMenuComponent extends React.Component {
     render() {
@@ -11,8 +12,10 @@ export default class DayMenuComponent extends React.Component {
                 )
             });
 
+        var isToday = moment().format('dddd').toLocaleLowerCase() === this.props.day.toLocaleLowerCase() ? "today" : "";
+        var className = "day-block "+ isToday;
         return (
-            <div className='day-block'>
+            <div className={className}>
                 <DayComponent value={this.props.day}/>
                 {mealComponent}
             </div>
