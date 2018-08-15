@@ -30,13 +30,16 @@ export default class WeekMenuComponent extends React.Component {
 
                 let meal_type_to_order_map = {
                     breakfast: 1,
-                    lunch: 2,
-                    dinner: 3
+                    brunch: 2,
+                    lunch: 3,
+                    dinner: 4,
+                    tea: 5,
+                    nightcap: 6
                 };
                 let sortMenus = function (menus) {
                     return menus.sort(function (left, right) {
-                        var leftValue = meal_type_to_order_map[left.meal_type.toLocaleLowerCase()] || 4;
-                        var rightValue = meal_type_to_order_map[right.meal_type.toLocaleLowerCase()] || 4;
+                        var leftValue = meal_type_to_order_map[left.meal_type.toLocaleLowerCase()] || 7;
+                        var rightValue = meal_type_to_order_map[right.meal_type.toLocaleLowerCase()] || 7;
                         return leftValue > rightValue ? 1 : leftValue < rightValue ? -1 : 0;
                     });
                 };
