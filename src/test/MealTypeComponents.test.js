@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import MealTypeComponent from '../main/MealTypeComponents';
+import MealTypeComponent from '../main/MealTypeComponent';
 import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
