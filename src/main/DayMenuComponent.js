@@ -5,10 +5,11 @@ import moment from 'moment'
 
 export default class DayMenuComponent extends React.Component {
     render() {
+        var day = this.props.day;
         var mealComponent =
             this.props.meals.map((x) => {
                 return (
-                    <MealComponent type={x.meal_type} name={x.meal_name} />
+                    <MealComponent key={day + x.meal_type} type={x.meal_type} name={x.meal_name} />
                 )
             });
 
@@ -16,7 +17,7 @@ export default class DayMenuComponent extends React.Component {
         var className = "day-block "+ isToday;
         return (
             <div className={className}>
-                <DayComponent value={this.props.day}/>
+                <DayComponent value={day}/>
                 {mealComponent}
             </div>
         )

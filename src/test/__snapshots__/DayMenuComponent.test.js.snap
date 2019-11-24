@@ -3,7 +3,7 @@
 exports[`DayMenuComponent should accept parameters 1`] = `
 Array [
   <div
-    className="day-block"
+    className="day-block today"
   >
     <DayComponent
       value="Sunday"
