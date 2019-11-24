@@ -9,7 +9,7 @@ class Board extends React.Component {
         return (
             <div id="body">
                 <HeaderComponent/>
-                <WeekMenuComponent baseUrl="http://localhost:5000/menus"/>
+                <WeekMenuComponent baseUrl="http://localhost:5000/meal/week/2019-47"/>
             </div>
         );
     }

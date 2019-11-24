@@ -19,7 +19,7 @@ export default class WeekMenuComponent extends React.Component {
     }
 
     componentDidMount() {
-        axios.get(this.props.baseUrl)
+        axios.get(this.props.baseUrl, {headers: {'user_id': 'uju'}})
             .then(response => {
                 let day_menus = response.data.week_menu.map((day_menu) => {
                     return ({
